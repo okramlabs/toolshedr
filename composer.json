@@ -1,0 +1,32 @@
+{
+    "name": "mkungla/toolshedr",
+    "description": "A tool you need to plan and host efficient workshops",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Marko Kungla",
+            "email": "marko.kungla@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {},
+    "autoload" : {
+        "psr-4" : {
+            "Toolshedr\\" : "src/server"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Toolshedr\\Tests\\": "tests/server"
+        }
+    }
+
+    "config": {
+        "github-protocols": ["ssh", "git"],
+        "vendor-dir": "vendor/server",
+        "optimize-autoloader": true,
+        "sort-packages": true,
+
+    }
+}
