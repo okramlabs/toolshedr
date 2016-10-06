@@ -1,14 +1,16 @@
-language: php node_js
-
 matrix:
   include:
-    - php: 7.0
+    - language: php
+      php: 7.0
       script: ./scripts/buildscripts/server.sh
-    - php: 7.0.10
+    - language: php
+      php: 7.0.10
       script: ./scripts/buildscripts/server.sh
-    - node_js: "6.0.0"
+    - language: node_js
+      node_js: "6.0.0"
       script: ./scripts/buildscripts/ui.sh
-    - node_js: "6.0.0"
+    - language: node_js
+      node_js: "6.0.0"
       script: ./scripts/buildscripts/ui.sh
 
 branches:
