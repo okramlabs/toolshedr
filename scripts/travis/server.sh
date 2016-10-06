@@ -7,6 +7,7 @@ TCI_RUNNER_PWD="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 source "$TCI_RUNNER_PWD/../helpers/colors.sh"
 
 # Start the job
+<<<<<<< 7cf4b63df636c455ddaf087cbe176e60c721890c
 log_ok "Loaded Toolshedr Server build script!"
 
 if [ -n "${TRAVIS_PHP_VERSION+1}" ]; then
