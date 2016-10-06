@@ -1,3 +1,28 @@
+# Install node_modules into vendor dir so that we can cache these
+env:
+  - NPM_CONFIG_PREFIX=./vendor/node_modules
+
+# Cache
+cache:
+  directories:
+    - vendor
+
+# Branches to build
+branches:
+  only:
+    - master
+
+# Skip before_install
+before_install: true
+
+# install dependencies
+install:
+  - pip install --user codecov
+
+# Skip before_script
+before_script: true
+
+# Build matrix
 matrix:
   include:
     - language: php
@@ -13,21 +38,15 @@ matrix:
       node_js: "6.0.0"
       script: ./scripts/buildscripts/ui.sh
 
-branches:
-  only:
-    - master
 
-cache:
-  directories:
-    - $TRAVIS_BUILD_DIR/node_modules
 
-before_install: true
 
-install:
-  - pip install --user codecov
-  - composer install
 
-before_script: true
+
+
+
+
+
 
 after_success: true
 
