@@ -7,9 +7,32 @@ before_install:
 
 install:
 - pip install --user codecov
+=======
+# Install node_modules into vendor dir so that we can cache these
+env:
+  - NPM_CONFIG_PREFIX=./vendor/node_modules
 
+# Cache
+cache:
+  directories:
+    - vendor
+
+# Branches to build
+branches:
+  only:
+    - master
+
+# Skip before_install
+before_install: true
+
+# install dependencies
+install:
+  - pip install --user codecov
+
+# Skip before_script
 before_script: true
 
+# Build matrix
 matrix:
   include:
   - language: php
