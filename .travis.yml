@@ -14,7 +14,7 @@ branches:
 
 # Prepare build
 before_install:
-- chmod +x ./scripts/travis/server.sh ./scripts/travis/ui.sh ./scripts/travis/after_success.sh
+  - chmod +x ./scripts/travis/server.sh ./scripts/travis/ui.sh ./scripts/travis/after_success.sh
 
 # install dependencies
 install:
