@@ -1,0 +1,31 @@
+language: php node_js
+
+matrix:
+  include:
+    - php: 7.0
+      script: ./scripts/buildscripts/server.sh
+    - php: 7.0.10
+      script: ./scripts/buildscripts/server.sh
+    - node_js: "6.0.0"
+      script: ./scripts/buildscripts/ui.sh
+    - node_js: "6.0.0"
+      script: ./scripts/buildscripts/ui.sh
+
+branches:
+  only:
+    - master
+
+cache:
+  directories:
+    - $TRAVIS_BUILD_DIR/node_modules
+
+before_install: true
+
+install:
+  - pip install --user codecov
+  - composer install
+
+before_script: true
+
+after_success: true
+
