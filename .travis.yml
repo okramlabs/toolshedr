@@ -8,8 +8,9 @@ branches:
   only:
     - master
 
-# Skip before_install
-before_install: true
+# Prepare build
+before_install:
+  - chmod +x ./scripts/travis/server.sh ./scripts/travis/ui.sh
 
 # install dependencies
 install:
