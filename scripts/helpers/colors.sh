@@ -1,24 +1,30 @@
 #!/bin/bash
 
-Color_Black='\033[0;30m'
-Color_Red='\033[0;31m'
-Color_Green='\033[0;32m'
-Color_Orange='\033[0;33m'
-Color_Blue='\033[0;34m'
-Color_Purple='\033[0;35m'
-Color_Cyan='\033[0;36m'
-Color_LightGray='\033[0;37m'
-Color_DarkGray='\033[1;30m'
-Color_LightRed='\033[1;31m'
-Color_LightGreen='\033[1;32m'
-Color_Yellow='\033[1;33m'
-Color_LightBlue='\033[1;34m'
-Color_LightPurple='\033[1;35m'
-Color_LightCyan='\033[1;36m'
-Color_White='\033[1;37m'
-Color_Reset='\033[0m'
+Color_Black=0
+Color_Red=1
+Color_Green=2
+Color_Yellow=3
+Color_Blue=4
+Color_Purple=5
+Color_Cyan=6
+Color_White=7
+Color_Orange=172
+Color_LightGreen=190
 
-function message
+function log_info
 {
-    printf  "%b" "${2}$1\e[0m\n"
+    echo "$(tput setaf ${Color_Blue}) [ MESSAGE ] $(tput sgr0) $1"
+}
+function log_ok
+{
+    echo "$(tput bold)$(tput setaf ${Color_Green}) [ SUCCESS ] $(tput sgr0) $1"
+}
+function log_warn
+{
+    echo "$(tput bold)$(tput setaf ${Color_Yellow}) [ WARNING ] $(tput sgr0) $1"
+}
+function log_err
+{
+    echo "$(tput bold)$(tput setaf ${Color_Red}) [  ERROR  ] $(tput sgr0) $1"
+    exit 1
 }

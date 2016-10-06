@@ -7,14 +7,17 @@ TCI_RUNNER_PWD="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 source "$TCI_RUNNER_PWD/../helpers/colors.sh"
 
 # Start the job
-message "Loaded Toolshedr Server build script!" $Color_LightGreen
+log_ok "Loaded Toolshedr Server build script!"
 
 if [ -n "${TRAVIS_PHP_VERSION+1}" ]; then
-	message "Starting build of Toolshedr Server with PHP ${TRAVIS_PHP_VERSION}" $Color_LightGreen
-	message $(pwd) $Color_LightGray
+	log_info "Starting build of Toolshedr Server with PHP ${TRAVIS_PHP_VERSION}."
+	log_info "PWD: $(pwd)"
 
-	message "Toolshedr Server Job DONE !!!" $Color_Green
+	# Load Server build tasks
+	source "$TCI_RUNNER_PWD/tasks/server_tasks.sh"
+
+	log_ok "Toolshedr Server Job DONE !!!"
 else
-    message "This Job should not call Toolshedr Server build script" $Color_LightBlue
+    log_warn "This Job should not call Toolshedr Server build script."
 fi
 exit 0

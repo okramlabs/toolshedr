@@ -7,17 +7,20 @@ TCI_RUNNER_PWD="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 source "$TCI_RUNNER_PWD/../helpers/colors.sh"
 
 # Start the job
-message "Loaded Toolshedr UI build script!" $Color_LightGreen
+log_ok "Loaded Toolshedr UI build script!" $Color_LightGreen
 
 if [ "${TRAVIS_NODE_VERSION+1}" ]; then
-	message "Starting build of Toolshedr UI with node ${TRAVIS_NODE_VERSION}" $Color_LightGreen
-    message $(pwd) $Color_LightGray
+	log_info "Starting build of Toolshedr UI with node ${TRAVIS_NODE_VERSION}" $Color_LightGreen
+    log_info "PWD: $(pwd)"
 
     # Set node_modules path to vendor/.. so that we can cache it
     export NPM_CONFIG_PREFIX=${TRAVIS_BUILD_DIR}/vendor/node_modules
 
-    message "Toolshedr UI Job DONE !!!" $Color_Green
+    # Load UI build tasks
+    source "$TCI_RUNNER_PWD/tasks/ui_tasks.sh"
+
+    log_ok "Toolshedr UI Job DONE !!!" $Color_Green
 else
-    message "This Job should not call Toolshedr UI build script" $Color_LightBlue
+    log_warn "This Job should not call Toolshedr UI build script" $Color_LightBlue
 fi
 exit 0
