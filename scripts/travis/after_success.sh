@@ -1,19 +1,18 @@
 #!/bin/bash
 
-#########
-# CHECKS
-#########
+set -e
+TCI_RUNNER_PWD="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-# Are composer dependencies installed?
+# Import dependencies
+source "$TCI_RUNNER_PWD/../helpers/colors.sh"
+
 if find "${TRAVIS_BUILD_DIR}/vendor/server" -mindepth 1 -print -quit | grep -q .; then
-    log_ok "Composer dependencies are installed or cached!"
-else
-    log_info "Composer dependencies are not installed or cached!"
-fi
+	log_info "Running post success tasks for Toolshedr Server ..."
 
-# Are NPM dependencies installed?
-if find "${TRAVIS_BUILD_DIR}/vendor/node_modules" -mindepth 1 -print -quit | grep -q .; then
-    log_ok "NPM dependencies are installed or cached!"
+elif find "${TRAVIS_BUILD_DIR}/vendor/node_modules" -mindepth 1 -print -quit | grep -q .; then
+    log_info "Running post success tasks for Toolshedr UI  ..."
 else
-    log_info "NPM dependencies are not installed or cached!"
+    log_err "Something is wrong nor TRAVIS_PHP_VERSION or TRAVIS_NODE_VERSION are set!"
+    exit 1
 fi
+exit 0
