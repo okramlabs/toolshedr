@@ -1,10 +1,11 @@
-#!/bin/bash
-set -ev
+#!/usr/bin/env bash
+
+set -e
 
 echo "Loaded Toolshedr Server build script!"
 
-if [ "${TRAVIS_PHP_VERSION}" != "false" ]; then
+if [ -n "${TRAVIS_PHP_VERSION+1}" ]; then
 	echo ${TRAVIS_PHP_VERSION}
 else
-    echo "Server called"
+    echo "This Job should not call Toolshedr Server build script"
 fi

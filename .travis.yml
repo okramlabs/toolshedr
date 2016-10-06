@@ -32,7 +32,7 @@ matrix:
       node_js: "6.0.0"
       script: ./scripts/travis/ui.sh
     - language: node_js
-      node_js: "6.0.0"
+      node_js: "6.7.0"
       script: ./scripts/travis/ui.sh
 
 after_success: true
