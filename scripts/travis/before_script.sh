@@ -6,4 +6,4 @@ TCI_RUNNER_PWD="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 # Import dependencies
 source "$TCI_RUNNER_PWD/../helpers/colors.sh"
 
-`printenv | grep TRAVIS_.*=`
+printenv | grep SESSION_.*=
