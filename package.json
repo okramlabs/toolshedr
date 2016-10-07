@@ -1,0 +1,29 @@
+{
+  "name": "toolshedr",
+  "version": "0.0.1",
+  "description": "A tool you need to plan and host efficient workshops",
+  "main": "dist/toolshedr.js",
+  "directories": {
+    "doc": "doc",
+    "test": "tests/app"
+  },
+  "scripts": {
+    "test": "test:local"
+  },
+  "repository": "mkungla/toolshedr",
+  "keywords": [
+    "workshop"
+  ],
+  "author": "Marko Kungla",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mkungla/toolshedr/issues"
+  },
+  "homepage": "https://github.com/mkungla/toolshedr#readme",
+  "dependencies":{},
+  "devDependencies":{},
+  "engines": {
+    "node": ">= 6.0.0",
+    "npm": "^3.8.0"
+  }
+}

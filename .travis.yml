@@ -1,14 +1,22 @@
+# Cache
 cache:
   directories:
   - vendor
+
 branches:
   only:
   - master
+
+# Prepare build
+
 before_install:
-- chmod +x ./scripts/travis/server.sh ./scripts/travis/ui.sh ./scripts/travis/after_success.sh
+  - chmod +x ./scripts/travis/server.sh ./scripts/travis/ui.sh ./scripts/travis/after_success.sh
+
 install:
-- pip install --user codecov
+  - pip install --user codecov
+
 before_script: true
+
 matrix:
   include:
   - language: php
@@ -18,14 +26,15 @@ matrix:
     php: 7.0.10
     script: "./scripts/travis/server.sh"
   - language: node_js
-    dependents: 
     node_js: 6.0.0
     script: "./scripts/travis/ui.sh"
   - language: node_js
     node_js: 6.7.0
     script: "./scripts/travis/ui.sh"
+
 after_success:
-- "./scripts/travis/after_success.sh"
+  - "./scripts/travis/after_success.sh"
+
 deploy:
   provider: npm
   email: marko.kungla@gmail.com
