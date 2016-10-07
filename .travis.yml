@@ -56,12 +56,14 @@ matrix:
   #######################
   ## deploy-release
   #######################
-  - language: node_js
+  - 
     env: deploy-release
-    node_js: 6.7.0
-    on:
-      tags: true
+    script: git describe --abbrev=0 --tags
     deploy:
+      on:
+        tags: true
+      node_js: 6.7.0
+      language: node_js
       provider: npm
       email: marko.kungla@gmail.com
       api_key:
