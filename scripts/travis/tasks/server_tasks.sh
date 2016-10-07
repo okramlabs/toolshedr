@@ -16,3 +16,7 @@ fi
 #########
 log_info "Install composer dependencies"
 composer install
+
+log_info "Run phpunit tests"
+cd $TRAVIS_BUILD_DIR/tests/server
+phpunit --coverage-clover="../../coverage.clover"
