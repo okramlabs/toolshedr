@@ -1,7 +1,3 @@
-# Install node_modules into vendor dir so that we can cache these
-env:
-  - NPM_CONFIG_PREFIX=./vendor/node_modules
-
 # Cache
 cache:
   directories:
