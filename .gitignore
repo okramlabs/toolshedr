@@ -5,6 +5,7 @@
 /vendor/*
 
 composer.lock
+npm-debug.log
 
 # Directories files to keep
 !/tests/server/results/log/.gitkeep
