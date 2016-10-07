@@ -5,25 +5,22 @@ env:
 # Cache
 cache:
   directories:
-    - vendor
+  - vendor
 
-# Branches to build
 branches:
   only:
   - master
 
 # Prepare build
+
 before_install:
   - chmod +x ./scripts/travis/server.sh ./scripts/travis/ui.sh ./scripts/travis/after_success.sh
 
-# install dependencies
 install:
   - pip install --user codecov
 
-# Skip before_script
 before_script: true
 
-# Build matrix
 matrix:
   include:
   - language: php
