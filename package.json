@@ -1,6 +1,6 @@
 {
   "name": "toolshedr",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A tool you need to plan and host efficient workshops",
   "main": "dist/toolshedr.js",
   "directories": {
@@ -20,8 +20,8 @@
     "url": "https://github.com/mkungla/toolshedr/issues"
   },
   "homepage": "https://github.com/mkungla/toolshedr#readme",
-  "dependencies":{},
-  "devDependencies":{},
+  "dependencies": {},
+  "devDependencies": {},
   "engines": {
     "node": ">= 6.0.0",
     "npm": "^3.8.0"
