@@ -55,18 +55,17 @@ matrix:
   #######################
   ## deploy-release
   #######################
-  - deploy:
-      language: node_js
-      node_js: 6.7.0
-      env: deploy-release
-      script:
-        - export TOOLSHEDR_LAST_COMMIT=`git log --format=fuller -1`
-        - export TOOLSHEDR_LAST_RELEASE=`git describe --abbrev=0 --tags`
+  - language: node_js
+    env: deploy-release
+    script:
+      - export TOOLSHEDR_LAST_COMMIT=`git log --format=fuller -1`
+      - export TOOLSHEDR_LAST_RELEASE=`git describe --abbrev=0 --tags`
+    deploy: 
+      node_js: 6.7.0 
       on:
         tags: true
         all_branches: true
         repo: mkungla/toolshedr
-      
       provider: npm
       email: marko.kungla@gmail.com
       api_key:
