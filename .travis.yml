@@ -59,7 +59,8 @@ matrix:
   ## deploy-release
   #######################
   - language: ruby 
-    rvm: 2.3
+    rvm: 
+      - 2.3
     env: deploy-release
     script:
       - export TOOLSHEDR_LAST_COMMIT=`git log --format=fuller -1`
