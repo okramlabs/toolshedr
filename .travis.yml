@@ -2,6 +2,7 @@
 cache:
   directories:
   - vendor
+  - tmp
 
 branches:
   only:
@@ -9,13 +10,13 @@ branches:
   
 # Prepare build
 before_install:
-  - chmod +x ./scripts/travis/server.sh ./scripts/travis/ui.sh ./scripts/travis/after_success.sh ./scripts/travis/before_script.sh
+  - chmod +x ./scripts/travis/server.sh ./scripts/travis/ui.sh ./scripts/travis/after_success.sh ./scripts/travis/build-status.rb
 
 install:
   - pip install --user codecov
 
 before_script: 
-  - printenv | grep TRAVIS_.*=
+  - "./scripts/travis/before_script.sh"
 
 matrix:
   include:
@@ -57,11 +58,16 @@ matrix:
   #######################
   ## deploy-release
   #######################
-  - language: node_js
+  - language: ruby
     env: deploy-release
     script:
       - export TOOLSHEDR_LAST_COMMIT=`git log --format=fuller -1`
       - export TOOLSHEDR_LAST_RELEASE=`git describe --abbrev=0 --tags`
+      - gem install travis
+      - gem install waitutil
+      - ./scripts/travis/build-status.rb
+      # Fail this job if build-status of any previous jobs failed!!
+      - if [ "$?" -ne 0 ]; then exit 1; fi
     deploy: 
       node_js: 6.7.0 
       on:
