@@ -7,8 +7,11 @@ branches:
   only:
   - master
 
+env:
+  - export TOOLSHEDR_LAST_COMMIT=`git log --format=fuller -1`
+  - export TOOLSHEDR_LAST_RELEASE=`git describe --abbrev=0 --tags`
+  
 # Prepare build
-
 before_install:
   - chmod +x ./scripts/travis/server.sh ./scripts/travis/ui.sh ./scripts/travis/after_success.sh
 
@@ -56,16 +59,18 @@ matrix:
   #######################
   ## deploy-release
   #######################
-  - 
-    env: deploy-release
-    script: git describe --abbrev=0 --tags
-    deploy:
-      on:
-        tags: true
-      node_js: 6.7.0
-      language: node_js
-      provider: npm
-      email: marko.kungla@gmail.com
-      api_key:
-        secure: kGU5QYsRFn9cfVUZbZKBWjf5fsUaY1K6eQFWM0xLaCFHklnGUW+snhmC+yYFRspeaSpZBVLI4PiFvwT6NDBeczK3E/LGdccAVM3XHSDDKOIqpSibbsN0MWUdtgalfn10ODhVqx+o0P0jBp3qxoEKqr9I3A5WyDqP6zo8fATYFZqm62DjS33B+dl9s4nHQwLyL27P4k8npJJgQgUWN+RHzEt2Gsj4o4R6wAgBvrLtuKSKd4hkCNDHS20wLtt/COuRE4oRrTFBNS50mFbQPey3OjeKJunNHP/+KiZf4+U3JgZZhkajkYSXznAj+0/fBxppgsFz83hdEMmNftYNsAz2JMHb4yWr7AQdN4SaXzRosVAnaEPBrm5NSTMGApoKxnl9SLXUX6d06xOgJEOGdZcoHAIziY2SQav+7OwShFZiAngwIygZkSaVQ5TLWvxL5yfayIl7j/fkENXEF6UQ/Y68C6hIjIfUZuZxpnNUc1NrnXLiSi61eP/NyXWGuukZ2u5H2WS08AZyrifVpGLXYURLQ4C+4xy3+JUFAozUdzUZ/EOcmg7eg+jDEfc54TYgHeummT4A91Ux+YyPulmEmqR9o7P9CTZdPkXtU/i1ORum8f0ox4t1csIg3UDI1rLp1RaycA+lgh6HS1/L5+MP/qS4EnpeYpl5hbIka/7hOouTMr4=
+
+deploy:
+  language: node_js
+  node_js: 6.7.0
+  env: deploy-release
+  on:
+    tags: true
+    all_branches: true
+    repo: mkungla/toolshedr
+  
+  provider: npm
+  email: marko.kungla@gmail.com
+  api_key:
+    secure: kGU5QYsRFn9cfVUZbZKBWjf5fsUaY1K6eQFWM0xLaCFHklnGUW+snhmC+yYFRspeaSpZBVLI4PiFvwT6NDBeczK3E/LGdccAVM3XHSDDKOIqpSibbsN0MWUdtgalfn10ODhVqx+o0P0jBp3qxoEKqr9I3A5WyDqP6zo8fATYFZqm62DjS33B+dl9s4nHQwLyL27P4k8npJJgQgUWN+RHzEt2Gsj4o4R6wAgBvrLtuKSKd4hkCNDHS20wLtt/COuRE4oRrTFBNS50mFbQPey3OjeKJunNHP/+KiZf4+U3JgZZhkajkYSXznAj+0/fBxppgsFz83hdEMmNftYNsAz2JMHb4yWr7AQdN4SaXzRosVAnaEPBrm5NSTMGApoKxnl9SLXUX6d06xOgJEOGdZcoHAIziY2SQav+7OwShFZiAngwIygZkSaVQ5TLWvxL5yfayIl7j/fkENXEF6UQ/Y68C6hIjIfUZuZxpnNUc1NrnXLiSi61eP/NyXWGuukZ2u5H2WS08AZyrifVpGLXYURLQ4C+4xy3+JUFAozUdzUZ/EOcmg7eg+jDEfc54TYgHeummT4A91Ux+YyPulmEmqR9o7P9CTZdPkXtU/i1ORum8f0ox4t1csIg3UDI1rLp1RaycA+lgh6HS1/L5+MP/qS4EnpeYpl5hbIka/7hOouTMr4=
 
