@@ -14,9 +14,7 @@ before_install: true
 install: true
 
 # shared before script for job matrix
-before_script: 
-  # Make right files found  in scripts executable
-  - find ./scripts -type f -name "*.rb" -name "*.sh" -exec chmod +x {} +
+before_script:
   - "./scripts/travis/before-script.sh"
 
 matrix:
