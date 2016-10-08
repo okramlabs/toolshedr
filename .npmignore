@@ -1,0 +1,7 @@
+scripts
+tests
+tmp
+node_modules
+vendor
+*.
+composer.json

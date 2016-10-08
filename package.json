@@ -20,8 +20,8 @@
     "url": "https://github.com/mkungla/toolshedr/issues"
   },
   "homepage": "https://github.com/mkungla/toolshedr#readme",
-  "dependencies":{},
-  "devDependencies":{},
+  "dependencies": {},
+  "devDependencies": {},
   "engines": {
     "node": ">= 6.0.0",
     "npm": "^3.8.0"
