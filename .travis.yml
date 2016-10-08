@@ -7,6 +7,7 @@ cache:
 branches:
   only:
   - master
+  - tags
   
 # Prepare build
 before_install: true
