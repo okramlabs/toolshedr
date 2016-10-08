@@ -14,7 +14,7 @@ if [ -n "${TRAVIS_PHP_VERSION+1}" ]; then
 	log_info "PWD: $(pwd)"
 
 	# Load Server build tasks
-	source "$TCI_RUNNER_PWD/tasks/server_tasks.sh"
+	source "$TCI_RUNNER_PWD/tasks/server-tasks.sh"
 
 	log_ok "Toolshedr Server Job DONE !!!"
 else

@@ -17,7 +17,7 @@ if [ "${TRAVIS_NODE_VERSION+1}" ]; then
     export NPM_CONFIG_PREFIX=${TRAVIS_BUILD_DIR}/vendor/node_modules
 
     # Load UI build tasks
-    source "$TCI_RUNNER_PWD/tasks/ui_tasks.sh"
+    source "$TCI_RUNNER_PWD/tasks/ui-tasks.sh"
 
     log_ok "Toolshedr UI Job DONE !!!" $Color_Green
 else

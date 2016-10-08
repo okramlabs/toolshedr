@@ -23,7 +23,7 @@ def are_builds_finished(build_nr, attempts)
   )
 end
 
-def are_we_ready_to_continue(build_nr)
+def we_ready_to_continue(build_nr)
   toolshedr = Travis::Repository.find('mkungla/toolshedr')
   return (toolshedr.job(sprintf("%d.1", build_nr)).green? &&
       toolshedr.job(sprintf("%d.2", build_nr)).green? &&
@@ -38,7 +38,13 @@ attempt = 1
 WaitUtil.wait_for_condition('other jobs to finish', :verbose => true, :timeout_sec => 600, :delay_sec => 15) do
   attempt += 1
 
-  [are_builds_finished(ENV['TRAVIS_BUILD_NUMBER'], attempt), "Seems that jobs take way to long to finish!"]
+  [are_builds_finished(ENV['TRAVIS_BUILD_NUMBER'], attempt), 'Seems that jobs take way to long to finish!']
 end
 
-exit are_we_ready_to_continue(ENV['TRAVIS_BUILD_NUMBER']) ? 0 : 1
+if(we_ready_to_continue(ENV['TRAVIS_BUILD_NUMBER']))
+  puts 'Yeah!!! All previous jobs succeeded we can continue.'
+  exit 0
+else
+  puts 'One or more previous Jobs failed so we are not even attending to release.'
+  exit 1
+end
