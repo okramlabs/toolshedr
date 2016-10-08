@@ -9,14 +9,13 @@ branches:
   - master
   
 # Prepare build
-before_install:
-  - chmod +x ./scripts/travis/server.sh ./scripts/travis/ui.sh ./scripts/travis/after_success.sh ./scripts/travis/build-status.rb
+before_install: true
 
-install:
-  - pip install --user codecov
+install: true
 
-before_script: 
-  - "./scripts/travis/before_script.sh"
+# shared before script for job matrix
+before_script:
+  - "./scripts/travis/before-script.sh"
 
 matrix:
   include:
@@ -37,7 +36,9 @@ matrix:
     script: "./scripts/travis/server.sh"
     # Only run after_success once with PHP version considered stable
     after_success:
-      - "./scripts/travis/after_success.sh"
+      # This job posts code coverage for Toolshedr Server
+      - pip install --user codecov
+      - "./scripts/travis/after-success.sh"
   #######################
   ## test-npm-min
   #######################
@@ -54,7 +55,9 @@ matrix:
     script: "./scripts/travis/ui.sh"
     # Only run after_success once with PHP version considered stable
     after_success:
-      - "./scripts/travis/after_success.sh"
+      # This job posts codec overage for Toolshedr UI
+      - pip install --user codecov
+      - "./scripts/travis/after-success.sh"
   #######################
   ## deploy-release
   #######################
@@ -62,12 +65,12 @@ matrix:
     rvm: 2.3.1
     env: deploy-release
     script:
-      - export TOOLSHEDR_LAST_COMMIT=`git log --format=fuller -1`
-      - export TOOLSHEDR_LAST_RELEASE=`git describe --abbrev=0 --tags`
       - gem install travis
       - gem install waitutil
       # If ruby script exits with non zero status it will cancel the release
       - ./scripts/travis/build-status.rb
+      - export TOOLSHEDR_LAST_COMMIT=`git log --format=fuller -1`
+      - export TOOLSHEDR_LAST_RELEASE=`git describe --abbrev=0 --tags`
     deploy: 
       node_js: 6.7.0 
       on:
