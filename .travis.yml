@@ -9,14 +9,14 @@ branches:
   - master
   
 # Prepare build
-before_install:
-  # Make right files found  in scripts executable
-  - find ./scripts -type f ! -name "*.rb" ! -name "*.sh" -exec chmod +x {} +
+before_install: true
 
 install: true
 
 # shared before script for job matrix
 before_script: 
+  # Make right files found  in scripts executable
+  - find ./scripts -type f -name "*.rb" -name "*.sh" -exec chmod +x {} +
   - "./scripts/travis/before-script.sh"
 
 matrix:
@@ -67,12 +67,12 @@ matrix:
     rvm: 2.3.1
     env: deploy-release
     script:
-      - export TOOLSHEDR_LAST_COMMIT=`git log --format=fuller -1`
-      - export TOOLSHEDR_LAST_RELEASE=`git describe --abbrev=0 --tags`
       - gem install travis
       - gem install waitutil
       # If ruby script exits with non zero status it will cancel the release
       - ./scripts/travis/build-status.rb
+      - export TOOLSHEDR_LAST_COMMIT=`git log --format=fuller -1`
+      - export TOOLSHEDR_LAST_RELEASE=`git describe --abbrev=0 --tags`
     deploy: 
       node_js: 6.7.0 
       on:
