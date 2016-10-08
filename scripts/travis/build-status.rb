@@ -17,10 +17,10 @@ def are_builds_finished(build_nr, attempts)
 
   toolshedr = Travis::Repository.find('mkungla/toolshedr')
 
-  job1_status = toolshedr.job(sprintf("%d.1", build_nr)).color?
-  job2_status = toolshedr.job(sprintf("%d.1", build_nr)).color?
-  job3_status = toolshedr.job(sprintf("%d.1", build_nr)).color?
-  job4_status = toolshedr.job(sprintf("%d.1", build_nr)).color?
+  job1_status = toolshedr.job(sprintf("%d.1", build_nr)).color
+  job2_status = toolshedr.job(sprintf("%d.1", build_nr)).color
+  job3_status = toolshedr.job(sprintf("%d.1", build_nr)).color
+  job4_status = toolshedr.job(sprintf("%d.1", build_nr)).color
 
   printf("\rChecking are previous jobs done ... Waiting already for %d seconds. ", time_since_beginning)
   printf("Job states JOB-1:%s JOB-2:%s JOB-3:%s JOB-4:%s ", job1_status, job2_status, job3_status, job4_status)
