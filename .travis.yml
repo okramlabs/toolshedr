@@ -10,13 +10,13 @@ branches:
   
 # Prepare build
 before_install:
-  - chmod +x ./scripts/travis/server.sh ./scripts/travis/ui.sh ./scripts/travis/after_success.sh ./scripts/travis/build-status.rb
+  # Make right files found  in scripts executable
+  - find ./scripts -type f ! -name "*.rb" ! -name "*.sh" -exec chmod +x {} +
 
-install:
-  - pip install --user codecov
+install: true
 
 before_script: 
-  - "./scripts/travis/before_script.sh"
+  - "./scripts/travis/before-script.sh"
 
 matrix:
   include:
@@ -37,7 +37,9 @@ matrix:
     script: "./scripts/travis/server.sh"
     # Only run after_success once with PHP version considered stable
     after_success:
-      - "./scripts/travis/after_success.sh"
+      # This job posts code coverage for Toolshedr Server
+      - pip install --user codecov
+      - "./scripts/travis/after-success.sh"
   #######################
   ## test-npm-min
   #######################
@@ -54,7 +56,9 @@ matrix:
     script: "./scripts/travis/ui.sh"
     # Only run after_success once with PHP version considered stable
     after_success:
-      - "./scripts/travis/after_success.sh"
+      # This job posts codec overage for Toolshedr UI
+      - pip install --user codecov
+      - "./scripts/travis/after-success.sh"
   #######################
   ## deploy-release
   #######################
