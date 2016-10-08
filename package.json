@@ -1,6 +1,6 @@
 {
   "name": "toolshedr",
-  "version": "0.0.1",
+  "version": "0.0.0",
   "description": "A tool you need to plan and host efficient workshops",
   "main": "dist/toolshedr.js",
   "directories": {
@@ -8,7 +8,10 @@
     "test": "tests/app"
   },
   "scripts": {
-    "test": "test:local"
+    "setup": "echo 'running setup wizard...'",
+    "test": "npm run test:local",
+    "test:local": "echo 'running local tests...'",
+    "test:ci": "echo 'running tests in travis...'"
   },
   "repository": "mkungla/toolshedr",
   "keywords": [
@@ -20,8 +23,10 @@
     "url": "https://github.com/mkungla/toolshedr/issues"
   },
   "homepage": "https://github.com/mkungla/toolshedr#readme",
-  "dependencies": {},
-  "devDependencies": {},
+  "dependencies": {
+  },
+  "devDependencies": {
+  },
   "engines": {
     "node": ">= 6.0.0",
     "npm": "^3.8.0"

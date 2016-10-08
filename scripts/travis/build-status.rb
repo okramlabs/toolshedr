@@ -12,6 +12,18 @@ require 'waitutil'
 # 3. test-npm-min
 # 4. test-npm-stable
 ##
+
+def we_ready_to_continue(build_nr)
+  toolshedr = Travis::Repository.find('mkungla/toolshedr')
+  job1_status = toolshedr.job(sprintf("%d.1", build_nr)).green?
+  job2_status = toolshedr.job(sprintf("%d.1", build_nr)).green?
+  job3_status = toolshedr.job(sprintf("%d.1", build_nr)).green?
+  job4_status = toolshedr.job(sprintf("%d.1", build_nr)).green?
+  printf("Are jobs green JOB-1:%s JOB-2:%s JOB-3:%s JOB-4:%s \n", job1_status, job2_status, job3_status, job4_status)
+  return [job1_status, job2_status, job3_status, job4_status].all?
+
+end
+
 def are_builds_finished(build_nr, attempts)
   time_since_beginning = attempts == 1 ? 1 : attempts * 15
 
@@ -22,24 +34,10 @@ def are_builds_finished(build_nr, attempts)
   job3_status = toolshedr.job(sprintf("%d.1", build_nr)).color
   job4_status = toolshedr.job(sprintf("%d.1", build_nr)).color
 
-  printf("\rChecking are previous jobs done ... Waiting already for %d seconds. ", time_since_beginning)
-  printf("Job states JOB-1:%s JOB-2:%s JOB-3:%s JOB-4:%s ", job1_status, job2_status, job3_status, job4_status)
+  printf("Checking are previous jobs done ... Waiting already for %d seconds. \n", time_since_beginning)
+  printf("Job states JOB-1:%s JOB-2:%s JOB-3:%s JOB-4:%s \n", job1_status, job2_status, job3_status, job4_status)
 
-  return (toolshedr.job(sprintf("%d.1", build_nr)).finished? &&
-      toolshedr.job(sprintf("%d.2", build_nr)).finished? &&
-      toolshedr.job(sprintf("%d.3", build_nr)).finished? &&
-      toolshedr.job(sprintf("%d.4", build_nr)).finished?
-  )
-end
-
-def we_ready_to_continue(build_nr)
-  toolshedr = Travis::Repository.find('mkungla/toolshedr')
-  return (toolshedr.job(sprintf("%d.1", build_nr)).green? &&
-      toolshedr.job(sprintf("%d.2", build_nr)).green? &&
-      toolshedr.job(sprintf("%d.3", build_nr)).green? &&
-      toolshedr.job(sprintf("%d.4", build_nr)).green?
-  )
-
+  return we_ready_to_continue(build_nr)
 end
 
 # Wait max 10 minutes
