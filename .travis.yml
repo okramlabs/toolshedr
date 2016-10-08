@@ -15,6 +15,7 @@ before_install:
 
 install: true
 
+# shared before script for job matrix
 before_script: 
   - "./scripts/travis/before-script.sh"
 
