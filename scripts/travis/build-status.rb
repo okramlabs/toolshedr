@@ -12,8 +12,9 @@ require 'waitutil'
 # 3. test-npm-min
 # 4. test-npm-stable
 ##
-def are_builds_finished(build_nr, attempt)
-  printf("Checking are previous jobs done ... Waiting already for %d seconds", attempt)
+def are_builds_finished(build_nr, attempts)
+  time_since_beginning = attempts == 1 ? 1 : attempts * 15
+  printf("\rChecking are previous jobs done ... Waiting already for %d seconds. ", time_since_beginning)
   toolshedr = Travis::Repository.find('mkungla/toolshedr')
   return (toolshedr.job(sprintf("%d.1", build_nr)).finished? &&
       toolshedr.job(sprintf("%d.2", build_nr)).finished? &&
