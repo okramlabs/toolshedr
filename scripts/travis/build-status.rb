@@ -14,8 +14,17 @@ require 'waitutil'
 ##
 def are_builds_finished(build_nr, attempts)
   time_since_beginning = attempts == 1 ? 1 : attempts * 15
-  printf("\rChecking are previous jobs done ... Waiting already for %d seconds. ", time_since_beginning)
+
   toolshedr = Travis::Repository.find('mkungla/toolshedr')
+
+  job1_status = toolshedr.job(sprintf("%d.1", build_nr)).color
+  job2_status = toolshedr.job(sprintf("%d.1", build_nr)).color
+  job3_status = toolshedr.job(sprintf("%d.1", build_nr)).color
+  job4_status = toolshedr.job(sprintf("%d.1", build_nr)).color
+
+  printf("\rChecking are previous jobs done ... Waiting already for %d seconds. ", time_since_beginning)
+  printf("Job states JOB-1:%s JOB-2:%s JOB-3:%s JOB-4:%s ", job1_status, job2_status, job3_status, job4_status)
+
   return (toolshedr.job(sprintf("%d.1", build_nr)).finished? &&
       toolshedr.job(sprintf("%d.2", build_nr)).finished? &&
       toolshedr.job(sprintf("%d.3", build_nr)).finished? &&
@@ -41,7 +50,7 @@ WaitUtil.wait_for_condition('other jobs to finish', :verbose => true, :timeout_s
   [are_builds_finished(ENV['TRAVIS_BUILD_NUMBER'], attempt), 'Seems that jobs take way to long to finish!']
 end
 
-if(we_ready_to_continue(ENV['TRAVIS_BUILD_NUMBER']))
+if (we_ready_to_continue(ENV['TRAVIS_BUILD_NUMBER']))
   puts 'Yeah!!! All previous jobs succeeded we can continue.'
   exit 0
 else
