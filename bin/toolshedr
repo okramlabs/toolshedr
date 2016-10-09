@@ -1,0 +1,19 @@
+#!/usr/bin/env php
+<?php
+// Do we have PHP >= 7
+(PHP_VERSION_ID > 70000) ?: (printf("PHP >= 7.0 required, yours is %s\n", phpversion())) . exit(1);
+
+// Only allowed to run from command line
+if (php_sapi_name() != 'cli') {
+    die('You can only run Toolshedr Server from command line');
+}
+
+require_once dirname(__DIR__, 1) . DIRECTORY_SEPARATOR . "src" . DIRECTORY_SEPARATOR . "server" .
+    DIRECTORY_SEPARATOR . "autoload.php";
+
+// Register autoloader
+$autoloader = new Toolshedr\Autoload();
+$autoloader->register();
+
+$TOOLSHEDR_CLI = new Toolshedr\CLI\AdministrationTool($argv, dirname(__DIR__));
+$TOOLSHEDR_CLI->run();
