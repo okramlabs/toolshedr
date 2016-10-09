@@ -1,22 +1,23 @@
 coverage:
   precision: 2
   round: down
-  range: 70...100
-
+  range: 70...100s
   status:
     project:
-      default: false
+      default:
+        target: 70
+        threshold: null
+        branches: null
       Server:
         target: 70
-        # Allow the coverage to drop by X% and posting a success status.
         threshold: 5
-        paths: "src/server"
+        branches: null
+        paths: "src/server/"
       UI:
         target: 70
-        # Allow the coverage to drop by X% and posting a success status.
         threshold: 5
-        paths: "src/app"
+        branches: null
+        paths: "src/app/"
     patch: false
     changes: false
-
 comment: false
