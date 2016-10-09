@@ -1,3 +1,7 @@
+# Do bot include Server Binary
+bin
+# Do not include Development files
+devel
 # Do not include CI build scripts
 scripts
 # Do not include Toolshedr Server source files

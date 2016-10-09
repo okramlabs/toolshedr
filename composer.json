@@ -19,8 +19,7 @@
   ],
   "minimum-stability": "stable",
   "require": {
-  },
-  "require-dev": {
+    "monolog/monolog": "^1.21"
   },
   "autoload" : {
     "psr-4" : {
@@ -32,6 +31,7 @@
       "Toolshedr\\Tests\\": "tests/server"
     }
   },
+  "bin": ["bin/toolshedr"],
   "config": {
     "github-protocols": ["ssh", "git"],
     "vendor-dir": "vendor/server",

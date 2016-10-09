@@ -1,9 +1,13 @@
 # Files and directories to ignore
+.sass-cache
 /tests/server/results/log/*
 /tests/server/results/report/*
+/node_modules
 /tmp/*
 /vendor/*
 
+/devel/css/*.css
+/devel/js/*.js
 composer.lock
 npm-debug.log
 

@@ -2,16 +2,18 @@
   "name": "toolshedr",
   "version": "0.0.0",
   "description": "A tool you need to plan and host efficient workshops",
-  "main": "dist/toolshedr.js",
+  "main": "src/app/js/index.js",
   "directories": {
     "doc": "doc",
     "test": "tests/app"
   },
   "scripts": {
     "setup": "echo 'running setup wizard...'",
+    "start": "grunt",
     "test": "npm run test:local",
-    "test:local": "echo 'running local tests...'",
-    "test:ci": "echo 'running tests in travis...'"
+    "test:local": "echo \"Error: no local test specified\" && exit 1",
+    "test:ci": "echo \"Error: no ci test specified\" && exit 1",
+    "watch": "grunt watch"
   },
   "repository": "mkungla/toolshedr",
   "keywords": [
@@ -23,9 +25,16 @@
     "url": "https://github.com/mkungla/toolshedr/issues"
   },
   "homepage": "https://github.com/mkungla/toolshedr#readme",
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
+    "babel-preset-es2015": "^6.16.0",
+    "babelify": "^7.3.0",
+    "grunt": "^1.0.1",
+    "grunt-browserify": "^5.0.0",
+    "grunt-contrib-compass": "^1.1.1",
+    "grunt-contrib-connect": "^1.0.2",
+    "grunt-contrib-jshint": "^1.0.0",
+    "grunt-contrib-watch": "^1.0.0"
   },
   "engines": {
     "node": ">= 6.0.0",

@@ -5,20 +5,19 @@ coverage:
 
   status:
     # Learn more at https://codecov.io/docs#yaml_default_commit_status
-    project:
-      default: false
-      Toolshedr Server:
-        target: 70
-        # Allow the coverage to drop by X% and posting a success status.
-        threshold: 5
-        branches: null
-        paths: "src/server"
-      Toolshedr Server:
-        target: 70
-        # Allow the coverage to drop by X% and posting a success status.
-        threshold: 5
-        branches: null
-        paths: "src/server"
+    Toolshedr Server:
+      target: 70
+      # Allow the coverage to drop by X% and posting a success status.
+      threshold: 5
+      branches: null
+      paths: "src/server"
+    Toolshedr UI:
+      target: 70
+      # Allow the coverage to drop by X% and posting a success status.
+      threshold: 5
+      branches: null
+      paths: "src/app"
+    project:  default: false
     patch: false
     changes: false
 
