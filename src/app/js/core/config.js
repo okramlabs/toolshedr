@@ -7,6 +7,7 @@ class Config {
     this.scheme = 'http';
     this.path = '/api';
     this.port = false;
+    this.api_key = false;
   }
 
   /**
@@ -23,7 +24,7 @@ class Config {
    * 
    * @returns {string}
    */
-  getServerUrl(){
+  getServerUrl(){ 
     return this.scheme + '://' + this.host + ((this.port) ? ':' + this.port : '') + this.path;
   }
   
