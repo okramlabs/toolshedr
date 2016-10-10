@@ -75,7 +75,6 @@ matrix:
     before_install:
       - gem install travis
       - gem install waitutil
-      - gem install json
     script:
       # If ruby script exits with non zero status it will cancel the release
       - ./scripts/travis/build-status.rb
@@ -84,6 +83,8 @@ matrix:
     before_deploy:
       - nvm install 6.7.0
       - nvm use 6.7.0
+      - gem install json
+      - gem install compass
       - npm install
       # bump the version string
       # and remove npm commands
