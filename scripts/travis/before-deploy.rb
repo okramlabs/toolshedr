@@ -19,7 +19,6 @@ package_contents.delete("devDependencies")
 
 package_contents["scripts"].delete("dev:server")
 package_contents["scripts"].delete("dev:ui")
-package_contents["scripts"].delete("release")
 package_contents["scripts"].delete("start")
 package_contents["scripts"].delete("test")
 package_contents["scripts"].delete("test:ui")

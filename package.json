@@ -10,7 +10,6 @@
   "scripts": {
     "dev:server": "php -S 127.0.0.1:9001 -t devel/",
     "dev:ui": "grunt",
-    "release": "grunt release",
     "start": "npm-run-all --parallel dev:server dev:ui",
     "setup": "echo 'running setup wizard...'",
     "test": "npm run test:local",
