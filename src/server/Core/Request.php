@@ -41,7 +41,7 @@ class Request
      */
     public function authenticate()
     {
-        return $this->apikeyIsValid();
+        return $this->checkApiKey();
         
     }
 
@@ -56,13 +56,22 @@ class Request
     }
 
     /**
+     * 
+     * @param string $api_key
+     * @return bool
+     */
+    public function isValidApiKey(string $api_key)
+    {
+        return in_array($api_key, $this->api_keys);
+    }
+    
+    /**
      * Is recieved API KEY valid
      * 
      * @return bool
      */
-    private function apikeyIsValid()
+    private function checkApiKey()
     {
-        return isset($_SERVER['HTTP_X_TOOLSHEDR_API_KEY']) &&
-            in_array($_SERVER['HTTP_X_TOOLSHEDR_API_KEY'], $this->api_keys);
+        return isset($_SERVER['HTTP_X_TOOLSHEDR_API_KEY']) && $this->isValidApiKey($api_key);
     }
 }

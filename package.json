@@ -14,8 +14,10 @@
     "start": "npm-run-all --parallel dev:server dev:ui",
     "setup": "echo 'running setup wizard...'",
     "test": "npm run test:local",
-    "test:local": "echo \"Error: no local test specified\" && exit 1",
-    "test:ci": "echo \"Error: no ci test specified\" && exit 1",
+    "test:ui": "echo \"Error: no local test specified\" && exit 1",
+    "test:server": "phpunit -c tests/server/phpunit.xml",
+    "test:server:report": "php -S 127.0.0.1:9002 -t tests/server/results/report",
+    "test:codecov": "curl --data-binary @codecov.yml https://codecov.io/validate",
     "watch": "grunt watch"
   },
   "repository": "mkungla/toolshedr",

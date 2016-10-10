@@ -47,12 +47,34 @@ final class Server
     }
 
     /**
+     * Is Domain whitelisted
+     * 
+     * @param string $origin
+     * @return bool
+     */
+    public function isWhitelisted(string $origin)
+    {
+        return $this->headers->isWhitelisted($origin);
+    }
+
+    /**
+     * Chack is API KEY valid
+     * 
+     * @param string $apy_key
+     * @return mixed
+     */
+    public function isValidApiKey(string $api_key)
+    {
+        return $this->request->isValidApiKey($api_key);
+    }
+    
+    /**
      * Set API KEY
      * 
      * @param string $api_key
      * @return void
      */
-    public function setApiKey(string $api_key)
+    public function apikey(string $api_key)
     {
         $this->request->setApiKey($api_key);
     }

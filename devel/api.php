@@ -8,5 +8,5 @@ require_once dirname(__DIR__) . DIRECTORY_SEPARATOR . 'vendor' . DIRECTORY_SEPAR
 
 $toolshedr = new Toolshedr\Server();
 $toolshedr->whitelist('http://127.0.0.1:9000');
-$toolshedr->setApiKey(sha1('API-KEY-Which-UI-has-to-use'));
+$toolshedr->apikey(sha1('API-KEY-Which-UI-has-to-use'));
 $toolshedr->run();

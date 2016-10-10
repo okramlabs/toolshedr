@@ -54,13 +54,24 @@ class Headers
     }
 
     /**
+     * Is Domain whitelisted
+     *
+     * @param string $origin
+     * @return bool
+     */
+    public function isWhitelisted(string $origin)
+    {
+        return in_array($origin, $this->whitlisted);
+    }
+    
+    /**
      * Check request origin
      *
      * @return bool
      */
     private function checkOrigin()
     {
-        if (!empty($_SERVER['HTTP_ORIGIN']) && in_array($_SERVER['HTTP_ORIGIN'], $this->whitlisted)) {
+        if (!empty($_SERVER['HTTP_ORIGIN']) && $this->isWhitelisted($_SERVER['HTTP_ORIGIN'])) {
             header(sprintf('Access-Control-Allow-Origin: %s', $_SERVER['HTTP_ORIGIN']));
             return true;
         } else {
@@ -70,6 +81,16 @@ class Headers
         }
     }
 
+    /**
+     * Get White listed domains
+     * 
+     * @return array
+     */
+    public function getWhitelist()
+    {
+        return $this->whitlisted;    
+    }
+    
     /**
      * Set HTTP Status Code
      * 

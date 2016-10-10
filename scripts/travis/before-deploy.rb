@@ -22,8 +22,10 @@ package_contents["scripts"].delete("dev:ui")
 package_contents["scripts"].delete("release")
 package_contents["scripts"].delete("start")
 package_contents["scripts"].delete("test")
-package_contents["scripts"].delete("test:local")
-package_contents["scripts"].delete("test:ci")
+package_contents["scripts"].delete("test:ui")
+package_contents["scripts"].delete("test:server")
+package_contents["scripts"].delete("test:server:report")
+package_contents["scripts"].delete("test:codecov")
 package_contents["scripts"].delete("watch")
 
 # print contents to CI CLI
