@@ -16,9 +16,17 @@ package_contents.delete("devDependencies")
 ##
 # Remove any commands which should not be on production servers
 # ex: package_contents["scripts"].delete("test")
+
+package_contents["scripts"].delete("dev:server")
+package_contents["scripts"].delete("dev:ui")
+package_contents["scripts"].delete("release")
+package_contents["scripts"].delete("start")
 package_contents["scripts"].delete("test")
-package_contents["scripts"].delete("test:ci")
-package_contents["scripts"].delete("test:local")
+package_contents["scripts"].delete("test:ui")
+package_contents["scripts"].delete("test:server")
+package_contents["scripts"].delete("test:server:report")
+package_contents["scripts"].delete("test:codecov")
+package_contents["scripts"].delete("watch")
 
 # print contents to CI CLI
 puts JSON.pretty_generate package_contents

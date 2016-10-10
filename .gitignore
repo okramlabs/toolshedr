@@ -1,5 +1,6 @@
 # Files and directories to ignore
 .sass-cache
+/dist
 /tests/server/results/log/*
 /tests/server/results/report/*
 /node_modules
@@ -12,6 +13,8 @@ composer.lock
 npm-debug.log
 
 # Directories files to keep
+!/dist/css/.gitkeep
+!/dist/js/.gitkeep
 !/tests/server/results/log/.gitkeep
 !/tests/server/results/report/.gitkeep
 !/tmp/.gitkeep

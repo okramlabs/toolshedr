@@ -14,9 +14,21 @@
         }
     </style>
 </head>
-<ul>
-    <li><a href="server.html">Toolshedr UI (If API server is running locally)</a></li>
-    <li><a href="static.html">Toolshedr UI (With dummy API)</a></li>
-</ul>
+<body>
+<div id="toolshedr">
+    <span>Loading Toolshedr!!!</span>
+</div>
+
+<script src="js/toolshedr.js"></script>
+<script>
+    TOOLSHEDR.Config.set({
+        host: 'localhost',
+        path: '/api',
+        port: '9000',
+        scheme: 'http'
+    })
+    TOOLSHEDR.connect();
+</script>
+<script src="//localhost:35729/livereload.js"></script>
 </body>
 </html>

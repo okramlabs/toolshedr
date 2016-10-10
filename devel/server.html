@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Toolshedr Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/toolshedr.css" rel='stylesheet' type='text/css' charset='utf-8' />
+    <style>
+        body {
+            height: 100vh;
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+<div id="toolshedr">
+    <span>Loading Toolshedr!!!</span>
+</div>
+
+<script src="js/toolshedr.js"></script>
+<script>
+    TOOLSHEDR.Config.set({
+        host: '127.0.0.1',
+        path: '/api.php',
+        port: '9001',
+        scheme: 'http',
+        api_key: 'ce74e4b29e2e8f8679dfa1bb07f844329c76196f' // === sha1('API-KEY-Which-UI-has-to-use')
+    });
+    TOOLSHEDR.connect();
+</script>
+<script src="//localhost:35729/livereload.js"></script>
+</body>
+</html>

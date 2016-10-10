@@ -1,13 +1,9 @@
 coverage:
   precision: 2
   round: down
-  range: 70...100s
+  range: 70...100
   status:
     project:
-      default:
-        target: 70
-        threshold: null
-        branches: null
       Server:
         target: 70
         threshold: 5
