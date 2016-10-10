@@ -21,6 +21,9 @@ matrix:
   - language: php
     env: test-php-min
     php: 7.0
+    branches:
+      only:
+        - master
     script: 
       - "./scripts/travis/server.sh"
   #######################
@@ -29,6 +32,9 @@ matrix:
   - language: php
     env: test-php-stable
     php: 7.0.10
+    branches:
+      only:
+        - master
     script: "./scripts/travis/server.sh"
     # Only run after_success once with PHP version considered stable
     after_success:
@@ -41,6 +47,9 @@ matrix:
   - language: node_js
     env: test-npm-min
     node_js: 6.0.0
+    branches:
+      only:
+        - master
     script: "./scripts/travis/ui.sh"
   #######################
   ## test-npm-stable
@@ -48,6 +57,9 @@ matrix:
   - language: node_js
     env: test-npm-stable
     node_js: 6.7.0
+    branches:
+      only:
+        - master
     script: "./scripts/travis/ui.sh"
     # Only run after_success once with PHP version considered stable
     after_success:
@@ -72,7 +84,9 @@ matrix:
     before_deploy:
       - nvm install 6.7.0
       - nvm use 6.7.0
+      - npm install
       # bump the version string
+      # and remove npm commands
       - ./scripts/travis/before-deploy.rb
       # Create dist files for npm package
       - grunt release
