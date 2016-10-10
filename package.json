@@ -2,7 +2,7 @@
   "name": "toolshedr",
   "version": "0.0.0",
   "description": "A tool you need to plan and host efficient workshops",
-  "main": "src/app/js/index.js",
+  "main": "dist/js/toolshedr.min.js",
   "directories": {
     "doc": "doc",
     "test": "tests/app"

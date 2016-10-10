@@ -19,7 +19,7 @@ matrix:
   ## test-php-min
   #######################
   - language: php
-    env: test-php-min
+    env: test-Server-php-min
     php: 7.0
     branches:
       only:
@@ -30,7 +30,7 @@ matrix:
   ## test-php-stable
   #######################
   - language: php
-    env: test-php-stable
+    env: test-Server-php-stable
     php: 7.0.10
     branches:
       only:
@@ -45,7 +45,7 @@ matrix:
   ## test-npm-min
   #######################
   - language: node_js
-    env: test-npm-min
+    env: test-UI-npm-min
     node_js: 6.0.0
     branches:
       only:
@@ -55,7 +55,7 @@ matrix:
   ## test-npm-stable
   #######################
   - language: node_js
-    env: test-npm-stable
+    env: test-UI-npm-stable
     node_js: 6.7.0
     branches:
       only:
@@ -71,7 +71,7 @@ matrix:
   #######################
   - language: ruby 
     rvm: 2.3.1
-    env: deploy-release
+    env: deploy-NPM-release
     before_install:
       - gem install travis
       - gem install waitutil
