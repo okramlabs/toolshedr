@@ -74,6 +74,7 @@ matrix:
       - nvm use 6.7.0
       # bump the version string
       - ./scripts/travis/before-deploy.rb
+      - npm run release
     deploy:
       provider: npm
       email: marko.kungla@gmail.com
