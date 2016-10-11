@@ -8,6 +8,7 @@ tmp export-ignore
 tests export-ignore
 vendor export-ignore
 .* export-ignore
+GruntFile.js export-ignore
 codecov.yml export-ignore
 package.json export-ignore
 CONTRIBUTING.md export-ignore
