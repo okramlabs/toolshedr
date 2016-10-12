@@ -9,11 +9,6 @@ coverage:
         threshold: 5
         branches: null
         paths: "src/server/"
-      UI:
-        target: 70
-        threshold: 5
-        branches: null
-        paths: "src/app/"
     patch: false
     changes: false
 comment: false
