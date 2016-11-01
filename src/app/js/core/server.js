@@ -1,3 +1,5 @@
+'use strict';
+
 import {ResponseError, NotFoundError, HttpError} from './http/http-responses';
 import 'whatwg-fetch';
 
@@ -36,15 +38,10 @@ class Server {
     
     // Reguest URL
     let request_url = this.api_url + path;
-
-    // Add .json to url if we are developing and need dummy API 
-    if (this.is_dev) {
-      request_url += '.json';
-    }
-
+    
     // Request Object
     var request = new Request(request_url, {
-      method: 'GET',
+      method: method,
       headers: this.headers,
       mode: 'cors',
       cache: 'default'

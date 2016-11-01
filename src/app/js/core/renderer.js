@@ -1,3 +1,5 @@
+'use strict';
+
 /**
  * Toolshedr Config
  */

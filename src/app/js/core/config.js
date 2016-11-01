@@ -1,3 +1,5 @@
+'use strict';
+
 /**
  * Toolshedr Config
  */
@@ -9,7 +11,7 @@ class Config {
     this.port = false;
     this.api_key = false;
   }
-
+  
   /**
    * Is it Development environment
    * 

@@ -1,6 +1,12 @@
+'use strict';
+
 import {Server} from './server';
 
 class Toolshedr {
+  constructor()
+  {
+    this.name = 'Toolshedr';
+  }
   greeting() {
     console.info("Name:    " + this.getName());
     console.info("Version: " + this.getVersion());

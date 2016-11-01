@@ -1,4 +1,10 @@
-import {version, name} from '../../../package.json';
+'use strict';
+
+if (module.hot) {
+  module.hot.accept();
+}
+
+import '../scss/toolshedr.scss';
 
 import Toolshedr from './core/toolshedr';
 
@@ -10,8 +16,17 @@ Toolshedr.Config = new Config();
 Toolshedr.Renderer = new Renderer();
 
 // Set props
-Toolshedr.name = name;
-Toolshedr.version = version + '-devel';
+Toolshedr.version = TOOLSHEDR_VERSION + '-devel';
 
 // Export to browser
 exports = window.TOOLSHEDR = Toolshedr;
+
+TOOLSHEDR.Config.set({
+  host: 'localhost',
+  path: '/devel/api.php',
+  port: '8080',
+  scheme: 'http',
+  api_key: 'ce74e4b29e2e8f8679dfa1bb07f844329c76196f' // === sha1('API-KEY-Which-UI-has-to-use')
+});
+TOOLSHEDR.connect();
+
