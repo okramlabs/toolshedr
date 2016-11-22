@@ -1,24 +1,28 @@
+######################################################################
 # Git attributes to ignore selection of files and directories
 # when publishing any of releases release.
-devel export-ignore
-dist export-ignore
-scripts export-ignore
-src/app export-ignore
+######################################################################
 tmp export-ignore
 tests export-ignore
 vendor export-ignore
+node_modules export-ignore
 .* export-ignore
-GruntFile.js export-ignore
 codecov.yml export-ignore
 package.json export-ignore
-CONTRIBUTING.md export-ignore
 
+######################################################################
 # how diffs are generated
+#
+######################################################################
 *.php diff=php
 
+######################################################################
 # end-of-line normalization
+# Setting the text attribute on a path enables end-of-line
+# normalization and marks the path as a text file.
+# End-of-line conversion takes place without guessing the content type.
+######################################################################
 * eol=lf
-
 * text=auto
 *.js text
 *.html text
@@ -27,11 +31,14 @@ CONTRIBUTING.md export-ignore
 .gitignore text
 .scrutinizer.yml text
 .travis.yml text
+codecov.yml text
 composer.json text
 LICENSE text
 
+######################################################################
 # for which files we don't want git to compute or print a diff for changes
 # binary does unset -text and -diff
+######################################################################
 *.jpg  binary image
 *.jpeg binary image
 *.png binary image

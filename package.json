@@ -1,8 +1,8 @@
 {
   "name": "toolshedr",
-  "version": "3.2.1",
+  "version": "0.2.0",
   "description": "A tool you need to plan and host efficient workshops",
-  "main": "src/app/js/index.js",
+  "main": "src/ui/js/index.js",
   "repository": "mkungla/toolshedr",
   "keywords": [
     "workshop"
@@ -15,8 +15,7 @@
   "homepage": "https://github.com/mkungla/toolshedr",
   "scripts": {
     "start": "npm run dev",
-    "build": "webpack --config ./devel/config/webpack.dist.js --colors",
-    "dev": "webpack-dev-server --config ./devel/config/webpack.devel.js --watch --colors"
+    "dev": "webpack-dev-server --config ./devel/webpack/webpack.devel.js --watch --colors"
   },
   "dependencies": {
     "whatwg-fetch": "^1.0.0"

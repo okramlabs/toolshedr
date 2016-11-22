@@ -26,6 +26,24 @@ composer require mkungla/toolshedr
 npm install toolshedr -S
 ```
 
+## Development
+
+- **Fork this project**
+[mkungla/toolshedr](https://github.com/mkungla/toolshedr)
+
+- **Development requirments**
+
+- **Setup development environement**
+
+```sh
+# git clone git@github.com:<your-github-username>/toolshedr.git
+```
+
+- **Developing Toolshedr UI**
+
+- **Developing Toolshedr Server**
+
+
 <!-- ASSETS and LINKS -->
 <!-- PHP FIG-->
 [psr-image]: https://img.shields.io/badge/cs-PSR--2-237551.svg
