@@ -1,5 +1,7 @@
  Toolshedr
-**A tool you need to plan and host efficient workshops!**  
+**A tool you need to plan and host efficient workshops!**
+
+> Work in progress
 
 | [![GitHub license][license-image]][license-url] | Version | Requires | Downloads |
 | :--- | :--- | :--- | :--- |
@@ -25,6 +27,24 @@ composer require mkungla/toolshedr
 ```sh
 npm install toolshedr -S
 ```
+
+## Development
+
+- **Fork this project**
+[mkungla/toolshedr](https://github.com/mkungla/toolshedr)
+
+- **Development requirments**
+
+- **Setup development environement**
+
+```sh
+# git clone git@github.com:<your-github-username>/toolshedr.git
+```
+
+- **Developing Toolshedr UI**
+
+- **Developing Toolshedr Server**
+
 
 <!-- ASSETS and LINKS -->
 <!-- PHP FIG-->

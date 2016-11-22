@@ -1,0 +1,166 @@
+swagger: "2.0"
+################################################################################
+#                              API Information                                 #
+################################################################################
+info:
+  version: "0.0.1"
+  title: Toolshedr API
+
+host: 127.0.0.1:8010
+
+basePath: /v1
+
+schemes:
+  - http
+  - https
+
+consumes:
+  - application/json
+produces:
+  - application/json
+
+################################################################################
+#                                  Security                                    #
+################################################################################
+securityDefinitions:
+  TOOLSHEDR_API_KEY:
+    type: apiKey
+    in: header
+    name: X-Toolshedr-API-KEY
+
+################################################################################
+#                                 Parameters                                   #
+################################################################################
+
+
+################################################################################
+#                                    Paths                                     #
+################################################################################
+paths:
+  /status:
+    get:
+      description: Returns API status.
+
+      security:
+        - TOOLSHEDR_API_KEY: []
+
+      responses:
+        200:
+          description: |
+            **Accepted request headers are OK**
+          schema:
+            $ref: '#/definitions/Message'
+
+        400:
+          description: |
+            **Bad Request**
+
+            You may recieve one of the following reason messages as body
+
+            - Invalid path {s}
+            - Invalid API Version. Accepted min: {d} max: {d}
+          schema:
+            $ref: '#/definitions/Error'
+
+        401:
+          description: |
+            **Unauthorized**
+
+            You may recieve one of the following reason messages as body
+
+            - Invalid or missing X-Toolshedr-API-KEY
+          schema:
+            $ref: '#/definitions/Error'
+
+        403:
+          description: |
+            **Forbidden**
+
+            - Authentication failure
+          schema:
+            $ref: '#/definitions/Error'
+
+        404:
+          description: |
+            **Not Found** - Request was valid but there is no content matching the criteria
+          schema:
+            $ref: '#/definitions/Message'
+
+        405:
+          description: |
+            **Method Not Allowed**
+
+             You may recieve one of the following reason messages as body
+
+             - Invalid request METHOD ({METHOD})
+          schema:
+            $ref: '#/definitions/Error'
+
+        501:
+          description: |
+            **Not Implemented**
+
+            This response will be returned if method called should exists, but is not yet implemented
+
+            - Message may contain extra info about missing implementation
+          schema:
+            $ref: '#/definitions/Error'
+
+    options:
+      description: Same as GET but without response body
+      responses:
+        200:
+          description: Accepted request headers are OK
+          schema:
+            $ref: '#/definitions/Message'
+
+    head:
+      description: Same as GET but without response body
+      responses:
+        200:
+          description: Accepted request headers are OK
+          schema:
+            $ref: '#/definitions/Message'
+
+  /version:
+    get:
+      description: Check Toolshedr version.
+      security:
+        - TOOLSHEDR_API_KEY: []
+      responses:
+
+        200:
+          description: |
+            **Returns full version of the Toolshedr**
+          schema:
+            $ref: '#/definitions/Version'
+        412:
+          description: |
+            **Precondition Failed**
+
+            You may recieve one of the following reason messages as body
+
+            - Configuration error
+          schema:
+            $ref: '#/definitions/Error'
+
+################################################################################
+#                                 Definitions                                  #
+################################################################################
+definitions:
+  Message:
+    type: object
+    properties:
+      message:
+        type: string
+
+  Version:
+    type: object
+    properties:
+      version:
+        type: string
+  Error:
+    type: object
+    properties:
+      error:
+        type: string

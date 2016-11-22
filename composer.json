@@ -8,33 +8,23 @@
     "issues" : "https://github.com/mkungla/toolshedr/issues",
     "source" : "https://github.com/mkungla/toolshedr"
   },
-  "authors": [
-    {
+  "authors": [{
       "name": "Marko Kungla",
-      "email": "marko.kungla@gmail.com"
-    }
-  ],
+      "email": "marko@okramlabs.com"
+  }],
   "keywords" : [
     "workshop"
   ],
   "minimum-stability": "stable",
   "require": {
-    "monolog/monolog": "^1.21"
   },
   "autoload" : {
     "psr-4" : {
       "Toolshedr\\" : "src/server"
     }
   },
-  "autoload-dev": {
-    "psr-4": {
-      "Toolshedr\\Tests\\": "tests/server"
-    }
-  },
-  "bin": ["bin/toolshedr"],
   "config": {
     "github-protocols": ["ssh", "git"],
-    "vendor-dir": "vendor/server",
     "optimize-autoloader": true,
     "sort-packages": true,
     "discard-changes": "stash",

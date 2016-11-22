@@ -1,20 +1,8 @@
 {
   "name": "toolshedr",
-  "version": "0.0.0",
+  "version": "0.2.0",
   "description": "A tool you need to plan and host efficient workshops",
-  "main": "src/app/js/index.js",
-  "scripts": {
-    "dev:server": "php -S 127.0.0.1:9001 -t devel/",
-    "dev:ui": "grunt",
-    "start": "npm-run-all --parallel dev:server dev:ui",
-    "setup": "echo 'running setup wizard...'",
-    "test": "npm run test:local",
-    "test:ui": "echo \"Error: no local test specified\" && exit 1",
-    "test:server": "phpunit -c tests/server/phpunit.xml",
-    "test:server:report": "php -S 127.0.0.1:9002 -t tests/server/results/report",
-    "test:codecov": "curl --data-binary @codecov.yml https://codecov.io/validate",
-    "watch": "grunt watch"
-  },
+  "main": "src/ui/js/index.js",
   "repository": "mkungla/toolshedr",
   "keywords": [
     "workshop"
@@ -24,22 +12,44 @@
   "bugs": {
     "url": "https://github.com/mkungla/toolshedr/issues"
   },
-  "homepage": "https://github.com/mkungla/toolshedr#readme",
-  "dependencies": {},
-  "devDependencies": {
-    "babel-plugin-transform-builtin-extend": "^1.1.0",
-    "babel-preset-es2015": "^6.16.0",
-    "babelify": "^7.3.0",
-    "grunt": "^1.0.1",
-    "grunt-browserify": "^5.0.0",
-    "grunt-contrib-compass": "^1.1.1",
-    "grunt-contrib-connect": "^1.0.2",
-    "grunt-contrib-jshint": "^1.0.0",
-    "grunt-contrib-uglify": "^2.0.0",
-    "grunt-contrib-watch": "^1.0.0",
-    "jshint-stylish": "^2.2.1",
-    "npm-run-all": "^3.1.0",
+  "homepage": "https://github.com/mkungla/toolshedr",
+  "scripts": {
+    "start": "npm run dev",
+    "dev": "webpack-dev-server --config ./devel/webpack/webpack.devel.js --watch --colors"
+  },
+  "dependencies": {
     "whatwg-fetch": "^1.0.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.18.2",
+    "babel-loader": "^6.2.7",
+    "babel-preset-es2015": "^6.18.0",
+    "compass-mixins": "^0.12.10",
+    "css-loader": "^0.25.0",
+    "eslint": "^3.9.1",
+    "eslint-loader": "^1.6.0",
+    "extract-text-webpack-plugin": "^1.0.1",e
+    "html-webpack-plugin": "^2.24.1",
+    "json-loader": "^0.5.4",
+    "node-sass": "^3.10.1",
+    "raw-loader": "^0.5.1",
+    "sass-loader": "^4.0.2",
+    "style-loader": "^0.13.1",
+    "webpack": "^1.13.3",
+    "webpack-dev-server": "^1.16.2"
+  },
+  "eslintConfig": {
+    "env": {
+      "browser": true,
+      "node": true
+    },
+    "parserOptions": {
+      "ecmaVersion": 6,
+      "sourceType": "module"
+    },
+    "rules": {
+      "semi": 2
+    }
   },
   "engines": {
     "node": ">= 6.0.0",
