@@ -1,5 +1,7 @@
  Toolshedr
-**A tool you need to plan and host efficient workshops!**  
+**A tool you need to plan and host efficient workshops!**
+
+> Work in progress
 
 | [![GitHub license][license-image]][license-url] | Version | Requires | Downloads |
 | :--- | :--- | :--- | :--- |

@@ -8,12 +8,10 @@
     "issues" : "https://github.com/mkungla/toolshedr/issues",
     "source" : "https://github.com/mkungla/toolshedr"
   },
-  "authors": [
-    {
+  "authors": [{
       "name": "Marko Kungla",
       "email": "marko@okramlabs.com"
-    }
-  ],
+  }],
   "keywords" : [
     "workshop"
   ],
