@@ -1,10 +1,5 @@
 # Files and directories to ignore
-.idea
 /tmp/*
-/vendor/*
-composer.lock
 
 # Directories files to keep
-!/tests/.gitkeep
 !/tmp/.gitkeep
-!/vendor/.gitkeep

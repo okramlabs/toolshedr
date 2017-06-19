@@ -3,18 +3,7 @@
 # when publishing any of releases release.
 ######################################################################
 tmp export-ignore
-tests export-ignore
-vendor export-ignore
-node_modules export-ignore
 .* export-ignore
-codecov.yml export-ignore
-package.json export-ignore
-
-######################################################################
-# how diffs are generated
-#
-######################################################################
-*.php diff=php
 
 ######################################################################
 # end-of-line normalization
@@ -27,12 +16,11 @@ package.json export-ignore
 *.js text
 *.html text
 *.md text
+*.yml text
+*.yaml text
 .gitattributes text
 .gitignore text
-.scrutinizer.yml text
 .travis.yml text
-codecov.yml text
-composer.json text
 LICENSE text
 
 ######################################################################
